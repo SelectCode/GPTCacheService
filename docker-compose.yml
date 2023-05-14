@@ -1,0 +1,13 @@
+version: "3"
+services:
+  cache:
+    build: .
+    image: cache
+    environment:
+      OPENAI_API_KEY: "[REPLACE]"
+      DB_URL: "sqlite:////data/database.db"
+      INDEX_PATH: "/data/faiss.index"
+    volumes:
+      - ./cache:/data
+    ports:
+      - 8080:8080
